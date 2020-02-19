@@ -1,13 +1,13 @@
 import React from 'react';
 
-import './App.css';
+import Layout from './pages/Layout';
 
 const App = () => {
   return (
-    <section className="App">
-
-    </section>
+    <div className="App">
+      <Layout />
+    </div>
   );
-}
+};
 
 export default App;
