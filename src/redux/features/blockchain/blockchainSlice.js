@@ -27,8 +27,8 @@ export const getBlockchainData = () => {
     try {
       const apiResponse = await axios.get('/ticker');
       const blockchainData = {
-        USD: apiResponse.data.USD.last,
-        EUR: apiResponse.data.EUR.last
+        usd: apiResponse.data.USD.last,
+        eur: apiResponse.data.EUR.last
       }
       dispatch(populateBlockchainData(blockchainData));
     } catch (err) {
