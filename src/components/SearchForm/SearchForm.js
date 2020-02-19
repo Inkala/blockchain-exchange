@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
+import { calculateExchange } from '../../redux/features/conversions/conversionsSlice';
 import classes from './SearchForm.module.scss';
 
 const SearchForm = () => {
+  const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     amount: 0,
     currency: 'eur'
@@ -16,9 +19,8 @@ const SearchForm = () => {
     });
   };
   const handleSubmit = e => {
-    if (e) {
-      e.preventDefault();
-    }
+    e.preventDefault();
+    dispatch(calculateExchange(inputs));
   };
 
   return (

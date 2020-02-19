@@ -12,8 +12,7 @@ const blockchainSlice = createSlice({
       state.blockchainData = action.payload;
     },
     apiError(state, action) {
-      const { message } = action.payload;
-      alert(message);
+      console.log(action.payload.message);
     }
   }
 });

@@ -7,14 +7,8 @@ import classes from './ExchngeRates.module.scss';
 
 const ExchngeRates = () => {
   const dispatch = useDispatch();
-
-  const { blockchainData } = useSelector(state => {
-    return state.blockchain;
-  });
-
-  const { usdData, eurData } = useSelector(state => {
-    return state.exchange;
-  });
+  const { blockchainData } = useSelector(state => state.blockchain);
+  const { usdData, eurData } = useSelector(state => state.exchange);
 
   useEffect(() => {
     dispatch(getBlockchainData());
@@ -32,7 +26,7 @@ const ExchngeRates = () => {
             <b>USD:</b> {usdData.eurPrice.toFixed(2)}€ EUR
           </p>
           <p>
-            <b>Blockchain: </b>
+            <b>BTC: </b>
             {blockchainData.eur.toFixed(2)}€ EUR
             <b> | </b>${blockchainData.usd.toFixed(2)} USD
           </p>

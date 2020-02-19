@@ -14,8 +14,7 @@ const exchangeSlice = createSlice({
       state.eurData = action.payload.eurData;
     },
     apiError(state, action) {
-      const { message } = action.payload;
-      alert(message);
+      console.log(action.payload.message);
     }
   }
 });
