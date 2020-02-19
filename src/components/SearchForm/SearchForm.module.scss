@@ -1,0 +1,19 @@
+.searchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  input, select, button {
+    padding: 0 10px;
+    height: 30px;
+    box-sizing: border-box;
+    margin: 0 10px;
+    font-size: 0.9em;
+  }
+
+  select {
+    height: 28px;
+  }
+
+}
