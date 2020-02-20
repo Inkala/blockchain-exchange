@@ -1,0 +1,44 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+
+  .resultsWrapper {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+
+    article {
+      flex: 1;
+      border: 1px solid gray;
+      margin: 0 10px;
+      padding: 20px;
+
+      h2 {
+        margin: 0;
+      }
+
+      .currency {
+        font-size: 0.8em;
+        color: gray;
+      }
+
+      ul {
+        font-size: 0.9em;
+        padding-left: 20px;
+        text-align: left;
+      }
+
+      li {
+        margin: 5px 0;
+      }
+    }
+  }
+
+  .dealType,
+  .dealPercent {
+    font-weight: bold;
+    font-size: 1.05em;
+  }
+}

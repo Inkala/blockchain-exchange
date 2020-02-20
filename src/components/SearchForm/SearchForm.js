@@ -8,7 +8,7 @@ const SearchForm = () => {
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     amount: 0,
-    currency: 'eur'
+    currency: 'EUR'
   });
 
   const handleInputChange = e => {
@@ -33,8 +33,8 @@ const SearchForm = () => {
         value={inputs.amount}
       />
       <select name="currency" onChange={handleInputChange}>
-        <option value="eur">EUR</option>
-        <option value="usd">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
       </select>
       <button type="submit">Calculate</button>
     </form>

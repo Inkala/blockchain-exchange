@@ -5,7 +5,7 @@ const conversionsSlice = createSlice({
   initialState: {
     conversionInformation: {
       originalAmount: 0, // Provided by the user
-      originaCurrency: '', // Provided by the user
+      originalCurrency: '', // Provided by the user
       foreignAmount: 0, // After converting it to another currency
       foreignCurrency: '', // Oposite currency from the original
       directExchange: 0, // Converted directly to Bitcoins
@@ -30,9 +30,9 @@ export default conversionsSlice.reducer;
 
 export const { setConversionInformation, setError } = conversionsSlice.actions;
 
-const setCurrencies = originaCurrency => {
-  const foreignCurrency = originaCurrency === 'eur' ? 'usd' : 'eur';
-  return { originaCurrency, foreignCurrency };
+const setCurrencies = originalCurrency => {
+  const foreignCurrency = originalCurrency === 'EUR' ? 'USD' : 'EUR';
+  return { originalCurrency, foreignCurrency };
 };
 
 const getDirectConversion = (blockchainData, input) => {
@@ -42,7 +42,7 @@ const getDirectConversion = (blockchainData, input) => {
 
 const getIndirectConversion = (blockchainData, exchangeData, input) => {
   let foreignAmount = 0;
-  if (input.currency === 'eur') {
+  if (input.currency === 'EUR') {
     foreignAmount = input.amount * exchangeData.eurData.usdPrice;
   } else {
     foreignAmount = input.amount * exchangeData.usdData.eurPrice;
@@ -70,7 +70,7 @@ const getBestDeal = (directExchange, indirectExchange) => {
 };
 
 export const calculateExchange = userInput => {
-  const { originaCurrency, foreignCurrency } = setCurrencies(
+  const { originalCurrency, foreignCurrency } = setCurrencies(
     userInput.currency
   );
   const originalAmount = userInput.amount;
@@ -87,18 +87,17 @@ export const calculateExchange = userInput => {
       const bestDeal = getBestDeal(
         directExchange,
         indirectExchange,
-        originaCurrency
+        originalCurrency
       );
       const conversionInformation = {
         originalAmount,
-        originaCurrency,
+        originalCurrency,
         foreignAmount,
         foreignCurrency,
         directExchange,
         indirectExchange,
         bestDeal
       };
-      console.log('Data', conversionInformation);
       dispatch(setConversionInformation(conversionInformation));
     } catch (err) {
       setError(err.message);

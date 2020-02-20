@@ -17,7 +17,7 @@ const ExchngeRates = () => {
 
   return (
     <header className={classes.exchangeRates}>
-      {eurData.usdPrice && blockchainData.eur ? (
+      {eurData.usdPrice && blockchainData.EUR ? (
         <section className={classes.ratesWrapper}>
           <p>
             <b>EUR:</b> ${eurData.usdPrice.toFixed(2)} USD
@@ -27,8 +27,8 @@ const ExchngeRates = () => {
           </p>
           <p>
             <b>BTC: </b>
-            {blockchainData.eur.toFixed(2)}€ EUR
-            <b> | </b>${blockchainData.usd.toFixed(2)} USD
+            {blockchainData.EUR.toFixed(2)}€ EUR
+            <b> | </b>${blockchainData.USD.toFixed(2)} USD
           </p>
         </section>
       ) : null}
