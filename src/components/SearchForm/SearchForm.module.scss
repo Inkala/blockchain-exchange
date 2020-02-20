@@ -6,7 +6,9 @@
   align-items: center;
   margin-top: 20px;
 
-  input, select, button {
+  input,
+  select,
+  button {
     padding: 0 10px;
     height: 30px;
     box-sizing: border-box;
@@ -14,29 +16,30 @@
     font-size: 0.9em;
     border-radius: 5px;
   }
-  
+
   input {
     border: 1px solid lightgray;
   }
-  
+
   select {
     height: 28px;
   }
-  
+
   button {
     color: white;
     border: none;
     background-color: $main;
     cursor: pointer;
+    padding: 0 15px;
 
     &:hover {
       background-color: $darker;
     }
-    
+
     &:active {
       background-color: $lighter;
     }
-    
+
     &:focus {
       outline: none;
     }

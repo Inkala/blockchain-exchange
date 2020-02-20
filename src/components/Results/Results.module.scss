@@ -18,4 +18,27 @@
     font-size: 1.15em;
     color: $main;
   }
+
+  .resetButton {
+    color: white;
+    border: none;
+    background-color: $main;
+    cursor: pointer;
+    padding: 0 15px;
+    height: 30px;
+    font-size: 0.9em;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $darker;
+    }
+
+    &:active {
+      background-color: $lighter;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
 }

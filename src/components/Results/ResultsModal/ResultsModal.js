@@ -4,6 +4,10 @@ import { animated } from 'react-spring';
 import classes from './ResultsModal.module.scss';
 
 const ResultsModal = ({ info, type, styleProps }) => {
+  const format = number => {
+    return Number(number).toFixed(2);
+  };
+
   const {
     originalAmount,
     originalCurrency,
@@ -21,39 +25,27 @@ const ResultsModal = ({ info, type, styleProps }) => {
         {type === 'direct' ? (
           <ul>
             <li>
-              <span className={classes.number}>
-                {Number(originalAmount).toFixed(2)}
-              </span>
+              <span className={classes.number}>{format(originalAmount)}</span>
               <span className={classes.smaller}> {originalCurrency}</span>
               <span className={classes.smaller}> = </span>
-              <span className={classes.number}>
-                {Number(directExchange).toFixed(2)}
-              </span>
+              <span className={classes.number}>{format(directExchange)}</span>
               <span className={classes.smaller}> BTC</span>
             </li>
           </ul>
         ) : (
           <ul>
             <li>
-              <span className={classes.number}>
-                {Number(originalAmount).toFixed(2)}
-              </span>
+              <span className={classes.number}>{format(originalAmount)}</span>
               <span className={classes.smaller}> {originalCurrency}</span>
               <span className={classes.smaller}> = </span>
-              <span className={classes.number}>
-                {Number(foreignAmount).toFixed(2)}
-              </span>
+              <span className={classes.number}>{format(foreignAmount)}</span>
               <span className={classes.smaller}> {foreignCurrency}</span>
             </li>
             <li>
-              <span className={classes.number}>
-                {Number(foreignAmount).toFixed(2)}
-              </span>
+              <span className={classes.number}>{format(foreignAmount)}</span>
               <span className={classes.smaller}> {foreignCurrency}</span>
               <span className={classes.smaller}> = </span>
-              <span className={classes.number}>
-                {Number(indirectExchange).toFixed(2)}
-              </span>
+              <span className={classes.number}>{format(indirectExchange)}</span>
               <span className={classes.smaller}> BTC</span>
             </li>
           </ul>

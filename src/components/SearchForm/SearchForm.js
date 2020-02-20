@@ -18,8 +18,10 @@ const SearchForm = () => {
       [e.target.name]: inputValue
     });
   };
+
   const handleSubmit = e => {
     e.preventDefault();
+    setInputs({ ...inputs, amount: 0 });
     dispatch(calculateExchange(inputs));
   };
 

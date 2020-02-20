@@ -69,38 +69,53 @@ const getBestDeal = (directExchange, indirectExchange) => {
   }
 };
 
+export const resetForm = () => {
+  return dispatch => {
+    dispatch(
+      setConversionInformation({
+        originalAmount: 0,
+        originalCurrency: '',
+        foreignAmount: 0,
+        foreignCurrency: '',
+        directExchange: 0,
+        indirectExchange: 0,
+        bestDeal: {
+          percentage: 0,
+          type: ''
+        }
+      })
+    );
+  };
+};
+
 export const calculateExchange = userInput => {
   const { originalCurrency, foreignCurrency } = setCurrencies(
     userInput.currency
   );
   const originalAmount = userInput.amount;
-  return async (dispatch, getState) => {
-    try {
-      const { blockchainData } = getState().blockchain;
-      const exchangeData = getState().exchange;
-      const directExchange = getDirectConversion(blockchainData, userInput);
-      const { indirectExchange, foreignAmount } = getIndirectConversion(
-        blockchainData,
-        exchangeData,
-        userInput
-      );
-      const bestDeal = getBestDeal(
-        directExchange,
-        indirectExchange,
-        originalCurrency
-      );
-      const conversionInformation = {
-        originalAmount,
-        originalCurrency,
-        foreignAmount,
-        foreignCurrency,
-        directExchange,
-        indirectExchange,
-        bestDeal
-      };
-      dispatch(setConversionInformation(conversionInformation));
-    } catch (err) {
-      setError(err.message);
-    }
+  return (dispatch, getState) => {
+    const { blockchainData } = getState().blockchain;
+    const exchangeData = getState().exchange;
+    const directExchange = getDirectConversion(blockchainData, userInput);
+    const { indirectExchange, foreignAmount } = getIndirectConversion(
+      blockchainData,
+      exchangeData,
+      userInput
+    );
+    const bestDeal = getBestDeal(
+      directExchange,
+      indirectExchange,
+      originalCurrency
+    );
+    const conversionInformation = {
+      originalAmount,
+      originalCurrency,
+      foreignAmount,
+      foreignCurrency,
+      directExchange,
+      indirectExchange,
+      bestDeal
+    };
+    dispatch(setConversionInformation(conversionInformation));
   };
 };
