@@ -1,68 +1,30 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About this test
 
-## Available Scripts
+To see this test working, clone the repository, type `npm install` from the root folder and then type `npm start`.
 
-In the project directory, you can run:
+### The test
 
-### `yarn start`
+The app has only one view that renders a header with the price for EUR, USD and BTC, the form where the user enters the amount and currency to be converted and the conversion results that appear when the calculation is done.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Technologies used
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+For this test I chose to use [React](https://reactjs.org/) with [Redux Toolkit](https://redux-toolkit.js.org/) for it is the one suggested by the test, but also because I had never used Toolkit before.
 
-### `yarn test`
+For the the animations I used [react-spring](https://www.react-spring.io/) for it simplicity and because it is also another technology I am currently trying to learn.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Success
 
-### `yarn build`
+All the functionalities that were added to the app are working as expected.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Challenges
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Grasping the concept of [Redux Toolkit](https://redux-toolkit.js.org/) was really challenging and it took a lot of time, but once it was set up, it was much easier to uses
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### What to improve
 
-### `yarn eject`
+There is always a lot to do and improve when you are developing something. For example if I had more time I would have added tests with [Enzyme](https://airbnb.io/enzyme/) for the UI and [Jest](https://jestjs.io/) or [Mocha](https://www.chaijs.com/)/[Chai](https://www.chaijs.com/) for the functionality, but it is also something that I don't have much experience with and it would take much more time.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I would do better error handling if the APIs fail or if the user enters a wrong input or negative numbers.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I would also improve the view and styles a lot, but I don't think it was the idea of this assignment.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
