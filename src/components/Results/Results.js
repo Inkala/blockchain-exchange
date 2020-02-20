@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useSpring, animated } from 'react-spring';
+import { useSpring } from 'react-spring';
 // import React, { useEffect } from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
 
+import ResultsModal from './ResultsModal/ResultsModal';
 import classes from './Results.module.scss';
 
 const Results = () => {
@@ -20,65 +21,20 @@ const Results = () => {
   });
 
   if (conversionInformation.directExchange) {
-    const {
-      originalAmount,
-      originalCurrency,
-      foreignAmount,
-      foreignCurrency,
-      directExchange,
-      indirectExchange,
-      bestDeal
-    } = conversionInformation;
+    const { bestDeal } = conversionInformation;
     conversionResults = (
       <section className={classes.results}>
         <section className={classes.resultsWrapper}>
-          <article className={classes.directConversion}>
-            <animated.div className={classes.resultsModal} style={styleProps}>
-              <h2>Direct conversion</h2>
-              <ul>
-                <li>
-                  <span className={classes.number}>
-                    {Number(originalAmount).toFixed(2)}
-                  </span>
-                  <span className={classes.smaller}> {originalCurrency}</span>
-                  <span className={classes.smaller}> = </span>
-                  <span className={classes.number}>
-                    {Number(directExchange).toFixed(2)}
-                  </span>
-                  <span className={classes.smaller}> BTC</span>
-                </li>
-              </ul>
-            </animated.div>
-          </article>
-          <article className={classes.inDirectConversion}>
-            <animated.div className={classes.resultsModal} style={styleProps}>
-              <h2>Indirect conversion</h2>
-              <ul>
-                <li>
-                  <span className={classes.number}>
-                    {Number(originalAmount).toFixed(2)}
-                  </span>
-                  <span className={classes.smaller}> {originalCurrency}</span>
-                  <span className={classes.smaller}> = </span>
-                  <span className={classes.number}>
-                    {Number(foreignAmount).toFixed(2)}
-                  </span>
-                  <span className={classes.smaller}> {foreignCurrency}</span>
-                </li>
-                <li>
-                  <span className={classes.number}>
-                    {Number(foreignAmount).toFixed(2)}
-                  </span>
-                  <span className={classes.smaller}> {foreignCurrency}</span>
-                  <span className={classes.smaller}> = </span>
-                  <span className={classes.number}>
-                    {Number(indirectExchange).toFixed(2)}
-                  </span>
-                  <span className={classes.smaller}> BTC</span>
-                </li>
-              </ul>
-            </animated.div>
-          </article>
+          <ResultsModal
+            type="direct"
+            info={conversionInformation}
+            styleProps={styleProps}
+          />
+          <ResultsModal
+            type="indirect"
+            info={conversionInformation}
+            styleProps={styleProps}
+          />
         </section>
         <section className={classes.conclusion}>
           <p>

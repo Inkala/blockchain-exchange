@@ -11,40 +11,6 @@
     width: 80%;
     max-width: 800px;
     margin: 0 auto;
-
-    article {
-      display: flex;
-      flex: 1;
-    }
-    
-    .resultsModal {
-      flex: 1;
-      margin: 0 20px;
-      padding: 20px;
-      background: linear-gradient($main, $lighter);
-      color: white;
-      border-radius: 10px;
-
-      h2 {
-        margin: 0;
-        color: $titles;
-      }
-
-      .smaller {
-        font-size: 0.8em;
-        color: $titles;
-      }
-
-      ul {
-        font-size: 0.9em;
-        padding-left: 20px;
-        text-align: left;
-      }
-
-      li {
-        margin: 5px 0;
-      }
-    }
   }
 
   .deal {
