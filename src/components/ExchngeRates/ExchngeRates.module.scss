@@ -1,8 +1,11 @@
+@import '../../variables.scss';
+
 .exchangeRates {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: lightgray;
+  background: linear-gradient(125deg, $accent, $main);
+  color: white;
   height: 50px;
 
   .ratesWrapper {
@@ -16,5 +19,8 @@
 
   p {
     margin: 0;
+  }
+  b {
+    color: $titles;
   }
 }
